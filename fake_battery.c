@@ -21,6 +21,7 @@
 #include <linux/miscdevice.h>
 #include <linux/module.h>
 #include <linux/power_supply.h>
+#include <linux/uaccess.h>
 
 #include <asm/uaccess.h>
 
