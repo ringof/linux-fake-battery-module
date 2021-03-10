@@ -25,6 +25,18 @@
 
 #include <asm/uaccess.h>
 
+// Stack guard fix pulled from Sathiya at: https://stackoverflow.com/a/55810884
+unsigned long __stack_chk_guard;
+void __stack_chk_guard_setup(void)
+{
+     __stack_chk_guard = 0xBAAAAAAD;//provide some magic numbers
+}
+
+void __stack_chk_fail(void)                         
+{
+ /* Error message */                                 
+}// will be called when guard variable is corrupted 
+
 static int
 fake_battery_get_property1(struct power_supply *psy,
         enum power_supply_property psp,
